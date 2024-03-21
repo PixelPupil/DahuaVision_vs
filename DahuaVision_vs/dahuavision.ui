@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DahuaVision</class>
+ <widget class="QWidget" name="DahuaVision">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DahuaVision</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" rowstretch="95,1" columnstretch="8,2">
+   <item row="0" column="0">
+    <widget class="CamWidget" name="wid_cam" native="true"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="lb_framecount">
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" rowspan="2">
+    <widget class="QWidget" name="wid_toolbox" native="true">
+     <layout class="QGridLayout" name="gridLayout_4" rowstretch="0,0,0,0,0,0,0,0,0,0">
+      <item row="5" column="0">
+       <widget class="QPushButton" name="btn_startCapturing">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>开始采集</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QPushButton" name="btn_pauseCapture">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>中止采集</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QComboBox" name="cb_device">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="btn_closeDevice">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>关闭设备</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="btn_openDevice">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>打开设备</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QPushButton" name="btn_findDevice">
+        <property name="text">
+         <string>查找设备</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="2">
+       <widget class="QGroupBox" name="gb_trigger">
+        <property name="title">
+         <string>采集方式</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="1">
+          <widget class="QRadioButton" name="rb_trigLine">
+           <property name="text">
+            <string>外部触发</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="rb_continous">
+           <property name="text">
+            <string>连续采集</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QPushButton" name="btn_softTrigger">
+           <property name="text">
+            <string>软触发一次</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="7" column="0" colspan="2">
+       <widget class="QGroupBox" name="gb_image">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="title">
+         <string>保存当前图像</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="btn_saveBmp">
+           <property name="text">
+            <string>保存图像</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="8" column="0" colspan="2">
+       <widget class="QGroupBox" name="gb_param">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="title">
+         <string>参数</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_6" columnstretch="0,0,0">
+         <item row="1" column="1">
+          <widget class="QProgressBar" name="pb_expTime">
+           <property name="maximum">
+            <number>1000000</number>
+           </property>
+           <property name="value">
+            <number>220</number>
+           </property>
+           <property name="textVisible">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="lb_gain">
+           <property name="text">
+            <string>增益</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QSpinBox" name="sb_gain">
+           <property name="maximum">
+            <number>32</number>
+           </property>
+           <property name="value">
+            <number>10</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QSpinBox" name="sb_expTime">
+           <property name="maximum">
+            <number>1000000</number>
+           </property>
+           <property name="value">
+            <number>220</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="lb_expTime">
+           <property name="text">
+            <string>曝光时间</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QProgressBar" name="pb_gain">
+           <property name="maximum">
+            <number>32</number>
+           </property>
+           <property name="value">
+            <number>10</number>
+           </property>
+           <property name="textVisible">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="9" column="0" colspan="2">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CamWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">camwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btn_findDevice</sender>
+   <signal>clicked()</signal>
+   <receiver>DahuaVision</receiver>
+   <slot>btn_findDevice_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>616</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>552</x>
+     <y>54</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_openDevice</sender>
+   <signal>clicked()</signal>
+   <receiver>DahuaVision</receiver>
+   <slot>btn_openDevice_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>615</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>553</x>
+     <y>89</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_closeDevice</sender>
+   <signal>clicked()</signal>
+   <receiver>DahuaVision</receiver>
+   <slot>btn_closeDevice_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>752</x>
+     <y>88</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>793</x>
+     <y>87</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_startCapturing</sender>
+   <signal>clicked()</signal>
+   <receiver>DahuaVision</receiver>
+   <slot>btn_startCapturing_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>657</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>553</x>
+     <y>114</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_pauseCapture</sender>
+   <signal>clicked()</signal>
+   <receiver>DahuaVision</receiver>
+   <slot>btn_pauseCapturing_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>781</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>795</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_saveBmp</sender>
+   <signal>clicked()</signal>
+   <receiver>DahuaVision</receiver>
+   <slot>btn_saveImage_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>771</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>553</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_device</sender>
+   <signal>activated(int)</signal>
+   <receiver>DahuaVision</receiver>
+   <slot>cb_device_activated(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>669</x>
+     <y>24</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>673</x>
+     <y>5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sb_expTime</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DahuaVision</receiver>
+   <slot>sb_expTime_valueChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>771</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>797</x>
+     <y>305</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sb_gain</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DahuaVision</receiver>
+   <slot>sb_gain_valueChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>771</x>
+     <y>365</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>799</x>
+     <y>373</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_softTrigger</sender>
+   <signal>clicked()</signal>
+   <receiver>DahuaVision</receiver>
+   <slot>btn_softTrigger_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>658</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>530</x>
+     <y>169</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>btn_openDevice_clicked()</slot>
+  <slot>btn_closeDevice_clicked()</slot>
+  <slot>btn_findDevice_clicked()</slot>
+  <slot>btn_pauseCapturing_clicked()</slot>
+  <slot>btn_startCapturing_clicked()</slot>
+  <slot>btn_saveImage_clicked()</slot>
+  <slot>cb_device_activated(int)</slot>
+  <slot>sb_gain_valueChanged(int)</slot>
+  <slot>sb_expTime_valueChanged(int)</slot>
+  <slot>btn_softTrigger_clicked()</slot>
+ </slots>
+</ui>
